@@ -1,0 +1,59 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class MonthInfo {
+    public static void main(String[] args) {
+        Map<String, Integer> months = new HashMap<>();
+        months.put("January", 31);
+        months.put("February", 28);
+        months.put("March", 31);
+        months.put("April", 30);
+        months.put("May", 31);
+        months.put("June", 30);
+        months.put("July", 31);
+        months.put("August", 31);
+        months.put("September", 30);
+        months.put("October", 31);
+        months.put("November", 30);
+        months.put("December", 31);
+
+        // 1. Display each month alongside its corresponding number of days.
+        System.out.println("1. Display each month alongside its corresponding number of days:");
+        for (Map.Entry<String, Integer> entry : months.entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue() + " days");
+        }
+
+        // 2. Display the months that have 31 days.
+        System.out.println("\n2. Display the months that have 31 days:");
+        for (Map.Entry<String, Integer> entry : months.entrySet()) {
+            if (entry.getValue() == 31) {
+                System.out.println(entry.getKey());
+            }
+        }
+
+        // 3. Display the months that have fewer than 31 days, along with their number of days.
+        System.out.println("\n3. Display the months that have fewer than 31 days, along with their number of days:");
+        for (Map.Entry<String, Integer> entry : months.entrySet()) {
+            if (entry.getValue() < 31) {
+                System.out.println(entry.getKey() + " - " + entry.getValue() + " days");
+            }
+        }
+
+        // 4. Calculate and display the total number of days for months with fewer than 31 days.
+        System.out.println("\n4. Calculate and display the total number of days for months with fewer than 31 days:");
+        int totalDays = 0;
+        for (Map.Entry<String, Integer> entry : months.entrySet()) {
+            if (entry.getValue() < 31) {
+                totalDays += entry.getValue();
+            }
+        }
+        System.out.println("Total days for months with fewer than 31 days: " + totalDays);
+
+        // 5. Repeat exercise 1, but only display the first 3 characters of each month’s name.
+        System.out.println("\n5. Repeat exercise 1, but only display the first 3 characters of each month’s name:");
+        for (Map.Entry<String, Integer> entry : months.entrySet()) {
+            String shortMonthName = entry.getKey().substring(0, 3);
+            System.out.println(shortMonthName + " - " + entry.getValue() + " days");
+        }
+    }
+}
